@@ -1,8 +1,7 @@
 import 'package:bottom_navy_bar/bottom_navy_bar.dart';
 import 'package:flutter/material.dart';
 import 'package:seapp/models/student.dart';
-import 'package:seapp/screens/home/module_list.dart';
-import 'package:seapp/screens/home/placeholder_widget.dart';
+import 'package:seapp/screens/home/feeds.dart';
 import 'package:seapp/screens/home/settings_form.dart';
 import 'package:seapp/screens/home/timetable.dart';
 import 'package:seapp/services/auth.dart';
@@ -19,7 +18,7 @@ class _HomeState extends State<Home> {
   final AuthService _auth = AuthService();
   int _currentIndex = 0;
   final List<Widget> _children = [
-    UserList(),
+    Feeds(),
     TimeTable(),
     UserList(),
   ];
@@ -48,7 +47,7 @@ class _HomeState extends State<Home> {
       child: Scaffold(
         appBar: AppBar(
           title: Text(
-            'SE App',
+            'SE Official',
             style: TextStyle(
               fontWeight: FontWeight.w400,
               fontSize: 18.0,
@@ -89,9 +88,9 @@ class _HomeState extends State<Home> {
 
           items: [
             BottomNavyBarItem(
-                icon: new Icon(Icons.people),
-                title: new Text('People'),
-                activeColor: Colors.red,
+                icon: Icon(Icons.rss_feed),
+                title: Text('Feeds'),
+                activeColor: Colors.blue,
                 inactiveColor: Colors.blueGrey
             ),
             BottomNavyBarItem(
@@ -101,10 +100,11 @@ class _HomeState extends State<Home> {
                 inactiveColor: Colors.blueGrey
             ),
             BottomNavyBarItem(
-                icon: Icon(Icons.rss_feed),
-                title: Text('Feeds'),
-                activeColor: Colors.blue,
-                inactiveColor: Colors.blueGrey)
+                icon: new Icon(Icons.people),
+                title: new Text('People'),
+                activeColor: Colors.red,
+                inactiveColor: Colors.blueGrey
+            )
           ],
         ),
       ),

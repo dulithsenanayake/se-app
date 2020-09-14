@@ -27,7 +27,7 @@ class _SignInState extends State<SignIn> {
       appBar: AppBar(
         backgroundColor: Colors.blueGrey[900],
         elevation: 0.0,
-        title: Text('Sign In to SE App'),
+        title: Text('Sign In to SE Official'),
         actions: <Widget>[
           FlatButton.icon(
               onPressed: () {
@@ -65,6 +65,7 @@ class _SignInState extends State<SignIn> {
                 cursorColor: Colors.red,
                 decoration: textInputDecoration.copyWith(labelText: 'Password'),
                 obscureText: true,
+
                 validator: (val) => val.isEmpty ? '* Required' : null,
                 onChanged: (val) {
                   setState(() => {password = val});

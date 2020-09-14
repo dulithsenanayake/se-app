@@ -1,4 +1,5 @@
 import 'package:cloud_firestore/cloud_firestore.dart';
+import 'package:seapp/models/feed.dart';
 import 'package:seapp/models/module.dart';
 import 'package:seapp/models/student.dart';
 import 'package:seapp/models/user.dart';
@@ -14,6 +15,8 @@ class DatabaseService {
       .collection('users');
   final CollectionReference timetableCollection = FirebaseFirestore.instance
       .collection('timtable');
+  final CollectionReference feedCollection = FirebaseFirestore.instance
+      .collection('feeds');
 
   Future updateUserData(String name, String sno, String nic, String mob,
       String gpa) async {
@@ -54,7 +57,7 @@ class DatabaseService {
 
   // get users stream
   Stream<List<Student>> get users {
-    return userCollection.snapshots()
+    return userCollection.orderBy("sno").snapshots()
         .map(_userListFromSnapshot);
   }
 
@@ -73,13 +76,15 @@ class DatabaseService {
       );
     }).toList();
   }
-
+  
   //timetableData from snapshot
   TimetableData _timetableDataFromSnapshot(DocumentSnapshot snapshot) {
     return TimetableData(
       day: day,
       morning: snapshot.data()['1'],
       evening: snapshot.data()['2'],
+      morningLecturer: snapshot.data()['3'],
+      eveningLecturer: snapshot.data()['4'],
     );
   }
 
@@ -93,6 +98,23 @@ class DatabaseService {
   Stream<TimetableData> get timetableData {
     return timetableCollection.doc(day).snapshots()
         .map(_timetableDataFromSnapshot);
+  }
+
+  // feed list from snapshot
+  List<Feed> _feedListFromSnapshot(QuerySnapshot snapshot) {
+    return snapshot.docs.map((doc) {
+      return Feed(
+        by: doc.data()['by'] ?? '',
+        desc: doc.data()['desc'] ?? '',
+        title: doc.data()['title'] ?? '',
+      );
+    }).toList();
+  }
+
+  // get feeds stream
+  Stream<List<Feed>> get feeds {
+    return feedCollection.snapshots()
+        .map(_feedListFromSnapshot);
   }
 
 }

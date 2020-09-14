@@ -28,7 +28,7 @@ class _SignUpState extends State<SignUp> {
       appBar: AppBar(
         backgroundColor: Colors.blueGrey[900],
         elevation: 0.0,
-        title: Text('Sign Up to SE App'),
+        title: Text('Sign Up to SE Official'),
         actions: <Widget>[
           FlatButton.icon(
               onPressed: () {

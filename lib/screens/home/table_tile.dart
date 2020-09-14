@@ -18,74 +18,74 @@ class TableTile extends StatelessWidget {
           if (snapshot.hasData) {
             TimetableData timetableData = snapshot.data;
             return DataTable(
-              columns: const <DataColumn>[
-                DataColumn(
-                  label: Text(
-                    'Monday',
-                    style: TextStyle(backgroundColor: Colors.orangeAccent),
+                columns: const <DataColumn>[
+                  DataColumn(
+                    label: Text(
+                      'Monday',
+                      //style: TextStyle(backgroundColor: Colors.orangeAccent),
+                    ),
                   ),
-                ),
-                DataColumn(
-                  label: Text(
-                    'Tuesday',
-                    style: TextStyle(backgroundColor: Colors.orangeAccent),
+                  DataColumn(
+                    label: Text(
+                      'Tuesday',
+                      //style: TextStyle(backgroundColor: Colors.orangeAccent),
+                    ),
                   ),
-                ),
-                DataColumn(
-                  label: Text(
-                    'Wednesday',
-                    style: TextStyle(backgroundColor: Colors.orangeAccent),
+                  DataColumn(
+                    label: Text(
+                      'Wednesday',
+                      //style: TextStyle(backgroundColor: Colors.orangeAccent),
+                    ),
                   ),
-                ),
-                DataColumn(
-                  label: Text(
-                    'Thursday',
-                    style: TextStyle(backgroundColor: Colors.orangeAccent),
+                  DataColumn(
+                    label: Text(
+                      'Thursday',
+                      //style: TextStyle(backgroundColor: Colors.orangeAccent),
+                    ),
                   ),
-                ),
-                DataColumn(
-                  label: Text(
-                    'Friday',
-                    style: TextStyle(backgroundColor: Colors.orangeAccent),
+                  DataColumn(
+                    label: Text(
+                      'Friday',
+                      //style: TextStyle(backgroundColor: Colors.orangeAccent),
+                    ),
                   ),
-                ),
-                DataColumn(
-                  label: Text(
-                    'Saturday',
-                    style: TextStyle(backgroundColor: Colors.orangeAccent),
+                  DataColumn(
+                    label: Text(
+                      'Saturday',
+                      //style: TextStyle(backgroundColor: Colors.orangeAccent),
+                    ),
                   ),
-                ),
-                DataColumn(
-                  label: Text(
-                    'Sunday',
-                    style: TextStyle(backgroundColor: Colors.orangeAccent),
+                  DataColumn(
+                    label: Text(
+                      'Sunday',
+                      //style: TextStyle(backgroundColor: Colors.orangeAccent),
+                    ),
                   ),
-                ),
-              ],
-              rows: <DataRow>[
-                DataRow(
-                  cells: <DataCell>[
-                    DataCell(Text(timetableData.morning)),
-                    DataCell(Text(timetableData.morning)),
-                    DataCell(Text(timetableData.morning)),
-                    DataCell(Text(timetableData.morning)),
-                    DataCell(Text(timetableData.morning)),
-                    DataCell(Text(timetableData.morning)),
-                    DataCell(Text(timetableData.morning)),
-                  ],
-                ),
-                DataRow(
-                  cells: <DataCell>[
-                    DataCell(Text(timetableData.evening)),
-                    DataCell(Text(timetableData.evening)),
-                    DataCell(Text(timetableData.evening)),
-                    DataCell(Text(timetableData.evening)),
-                    DataCell(Text(timetableData.evening)),
-                    DataCell(Text(timetableData.evening)),
-                    DataCell(Text(timetableData.evening)),
-                  ],
-                ),
-              ],
+                ],
+                rows: <DataRow>[
+                  DataRow(
+                    cells: <DataCell>[
+                      DataCell(Text(timetableData.morning)),
+                      DataCell(Text(timetableData.morning)),
+                      DataCell(Text(timetableData.morning)),
+                      DataCell(Text(timetableData.morning)),
+                      DataCell(Text(timetableData.morning)),
+                      DataCell(Text(timetableData.morning)),
+                      DataCell(Text(timetableData.morning)),
+                    ],
+                  ),
+                  DataRow(
+                    cells: <DataCell>[
+                      DataCell(Text(timetableData.evening)),
+                      DataCell(Text(timetableData.evening)),
+                      DataCell(Text(timetableData.evening)),
+                      DataCell(Text(timetableData.evening)),
+                      DataCell(Text(timetableData.evening)),
+                      DataCell(Text(timetableData.evening)),
+                      DataCell(Text(timetableData.evening)),
+                    ],
+                  ),
+                ],
             );
           } else {
             return Loading();
